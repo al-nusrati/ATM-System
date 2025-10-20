@@ -10,10 +10,10 @@ private:
 
 public:
 
-    class InvalidAmount { };
-    class InsufficientBalance { };
-    class ZeroBalance { };
-    class InvalidPIN { };
+    class InvalidAmount { };                // amount is negative or zero
+    class InsufficientBalance { };          // amount is exceeding balance 
+    class ZeroBalance { };                  // balance is zero
+    class InvalidPIN { };                   // pin is less than 4 and greater than 5 
 
     ATM(int accNum, string name, double bal, int p) {
         accountNumber = accNum;
