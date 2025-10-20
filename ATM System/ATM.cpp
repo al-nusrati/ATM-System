@@ -10,10 +10,10 @@ private:
 
 public:
     // Exception classes
-    class InvalidAmount {};
-    class InsufficientBalance {};
-    class ZeroBalance {};
-    class InvalidPIN {};
+    class InvalidAmount { };
+    class InsufficientBalance { };
+    class ZeroBalance { };
+    class InvalidPIN { };
 
     // Constructor
     ATM(int accNum, string name, double bal, int p) {
@@ -27,7 +27,7 @@ public:
     void deposit(double amount) {
         if (amount <= 0)
             throw InvalidAmount();
-
+        
         balance += amount;
         cout << "Successfully deposited $" << amount << endl;
         cout << "New balance: $" << balance << endl;
@@ -37,10 +37,10 @@ public:
     void withdraw(double amount) {
         if (amount <= 0)
             throw InvalidAmount();
-
+        
         if (amount > balance)
             throw InsufficientBalance();
-
+        
         balance -= amount;
         cout << "Successfully withdrawn $" << amount << endl;
         cout << "Remaining balance: $" << balance << endl;
@@ -50,7 +50,7 @@ public:
     void checkBalance() {
         if (balance == 0)
             throw ZeroBalance();
-
+        
         cout << "Current balance: $" << balance << endl;
     }
 
@@ -59,7 +59,7 @@ public:
         // Check if PIN is exactly 4 digits (1000-9999)
         if (newPIN < 1000 || newPIN > 9999)
             throw InvalidPIN();
-
+        
         pin = newPIN;
         cout << "PIN successfully changed!" << endl;
     }
@@ -75,7 +75,7 @@ public:
 
 int main() {
     ATM account(12345, "John Doe", 1000.0, 1234);
-
+    
     cout << "=== ATM System Demo ===" << endl;
     account.displayInfo();
 
